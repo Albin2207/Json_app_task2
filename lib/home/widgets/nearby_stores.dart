@@ -9,9 +9,8 @@ class NearbyStores extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 'Nearby stores',
@@ -21,6 +20,7 @@ class NearbyStores extends StatelessWidget {
                   color: Colors.black87,
                 ),
               ),
+              SizedBox(width: 130),
               Text(
                 'See all',
                 style: TextStyle(
@@ -37,8 +37,60 @@ class NearbyStores extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemCount: 2,
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          separatorBuilder: (context, index) => const Divider(height: 1),
+          padding: const EdgeInsets.symmetric(),
+          separatorBuilder:
+              (context, index) => Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Padding to align the divider with text content
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 96,
+                    ), // 80 (image width) + 16 (spacing)
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Divider(height: 1),
+                        const SizedBox(height: 8),
+                        // Icons row with the same left alignment as the divider
+                        Row(
+                          children: [
+                            Image.asset(
+                              'assets/nearby section/Vector.png',
+                              width: 14,
+                              height: 14,
+                            ),
+                            const SizedBox(width: 4),
+                            Text(
+                              'Upto 10% OFF',
+                              style: TextStyle(
+                                fontSize: 12.5,
+                                color: Colors.black87,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            const SizedBox(width: 14),
+                            Image.asset(
+                              'assets/nearby section/grocery (1) 1.png',
+                              width: 14,
+                              height: 14,
+                            ),
+                            const SizedBox(width: 4),
+                            Text(
+                              '3400+ items available',
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 16),
@@ -52,12 +104,13 @@ class NearbyStores extends StatelessWidget {
                       width: 80,
                       height: 80,
                       fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) => Container(
-                        width: 80,
-                        height: 80,
-                        color: Colors.grey.shade300,
-                        child: const Icon(Icons.image, color: Colors.grey),
-                      ),
+                      errorBuilder:
+                          (context, error, stackTrace) => Container(
+                            width: 80,
+                            height: 80,
+                            color: Colors.grey.shade300,
+                            child: const Icon(Icons.image, color: Colors.grey),
+                          ),
                     ),
                   ),
                   const SizedBox(width: 16),
@@ -69,7 +122,7 @@ class NearbyStores extends StatelessWidget {
                           'Freshly Baker',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                            fontSize: 18,
                             color: Colors.black87,
                           ),
                         ),
@@ -77,7 +130,7 @@ class NearbyStores extends StatelessWidget {
                         Text(
                           'Sweets, North Indian',
                           style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 12,
                             color: Colors.grey.shade700,
                           ),
                         ),
@@ -85,7 +138,7 @@ class NearbyStores extends StatelessWidget {
                         Text(
                           'Site No - 1 | 6.4 kms',
                           style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 10,
                             color: Colors.grey.shade700,
                           ),
                         ),
@@ -102,51 +155,10 @@ class NearbyStores extends StatelessWidget {
                           child: const Text(
                             'Top Store',
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 8,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                        ),
-                        const SizedBox(height: 12),
-                        Row(
-                          children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.local_offer,
-                                  color: Colors.red,
-                                  size: 16,
-                                ),
-                                const SizedBox(width: 4),
-                                Text(
-                                  'Upto 10% OFF',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.black87,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(width: 16),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.shopping_bag_outlined,
-                                  color: Colors.green,
-                                  size: 16,
-                                ),
-                                const SizedBox(width: 4),
-                                Text(
-                                  '3400+ items available',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.black87,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
                         ),
                       ],
                     ),
