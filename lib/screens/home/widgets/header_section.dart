@@ -55,9 +55,9 @@ class HeaderSection extends StatelessWidget {
                     children: [
                       Text(
                         'Search for products/stores',
-                        style: TextStyle(color: Colors.grey, fontSize: 18),
+                        style: TextStyle(color: Colors.grey, fontSize: 16.5),
                       ),
-                      const SizedBox(width: 8),
+                      const SizedBox(width: 6),
                       Icon(
                         Icons.search,
                         color: const Color.fromARGB(255, 77, 228, 82),
@@ -73,11 +73,17 @@ class HeaderSection extends StatelessWidget {
                 decoration: BoxDecoration(shape: BoxShape.circle),
                 child: Stack(
                   children: [
-                    Icon(
-                      Icons.notifications_outlined,
-                      size: 28,
-                      color: Colors.orange,
+                    IconButton(
+                      icon: Icon(
+                        Icons.notifications_outlined,
+                        size: 28,
+                        color: Colors.orange,
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/notifications');
+                      },
                     ),
+
                     Positioned(
                       right: 0,
                       top: 0,

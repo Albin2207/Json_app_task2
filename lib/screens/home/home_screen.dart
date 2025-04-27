@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:json_app/home/widgets/category_section.dart';
-import 'package:json_app/home/widgets/crazydeals_section.dart';
-import 'package:json_app/home/widgets/header_section.dart';
-import 'package:json_app/home/widgets/nearby_stores.dart';
-import 'package:json_app/home/widgets/refer_earn.dart';
-import 'package:json_app/home/widgets/top_picks.dart';
-import 'package:json_app/home/widgets/trending_list.dart';
-import 'package:json_app/home/widgets/viewstores_button.dart';
+import 'package:json_app/screens/home/widgets/category_section.dart';
+import 'package:json_app/screens/home/widgets/crazydeals_section.dart';
+import 'package:json_app/screens/home/widgets/header_section.dart';
+import 'package:json_app/screens/home/widgets/nearby_stores.dart';
+import 'package:json_app/screens/home/widgets/refer_earn.dart';
+import 'package:json_app/screens/home/widgets/top_picks.dart';
+import 'package:json_app/screens/home/widgets/trending_list.dart';
+import 'package:json_app/screens/home/widgets/viewstores_button.dart';
 import 'package:json_app/widgets/bottom_navbar.dart';
 
 class HomeScreen extends StatelessWidget {
