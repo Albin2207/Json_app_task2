@@ -32,13 +32,20 @@ class ReferEarn extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 6),
+                  // Fixed the overflowing Row
                   Row(
+                    // Make the Row take minimum horizontal space
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        'Invite your friends & earn 15% off',
-                        style: TextStyle(
-                          fontSize: 13, 
-                          color: Colors.white
+                      // Wrap text with Flexible to allow it to shrink if needed
+                      Flexible(
+                        child: Text(
+                          'Invite your friends & earn 15% off',
+                          style: TextStyle(
+                            fontSize: 13, 
+                            color: Colors.white
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       const SizedBox(width: 10),
@@ -53,7 +60,7 @@ class ReferEarn extends StatelessWidget {
                         child: Icon(
                           Icons.arrow_forward,
                           color: const Color(0xFF22C55E),
-                          size: 16,
+                          size: 12, // Reduced size slightly
                         ),
                       ),
                     ],
@@ -81,7 +88,6 @@ class ReferEarn extends StatelessWidget {
                   children: [
                     // Gift box base
                     Positioned(
-                
                       bottom: 5,
                       child: Container(
                         width: 50,

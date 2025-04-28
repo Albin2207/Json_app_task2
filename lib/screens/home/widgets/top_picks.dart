@@ -37,17 +37,9 @@ class TopPicksWidget extends StatelessWidget {
                 // Second promo container
                 _buildPromoContainer(
                   color: const Color.fromARGB(255, 66, 51, 179),
-                  imagePath: 'assets/vegetables.png',
+                  imagePath: 'assets/This Produce Delivery Service Wants You to Start Eating the _Ugly_ Vegetables Too 1.png',
                   buttonColor: Colors.green,
                   titles: ['FRESH', 'VEGETABLES', 'OFFER'],
-                ),
-                const SizedBox(width: 17),
-                // Third promo container (optional)
-                _buildPromoContainer(
-                  color: Colors.blue,
-                  imagePath: 'assets/dairy.png',
-                  buttonColor: Colors.orange,
-                  titles: ['NEW', 'DAIRY', 'PRODUCTS'],
                 ),
               ],
             ),

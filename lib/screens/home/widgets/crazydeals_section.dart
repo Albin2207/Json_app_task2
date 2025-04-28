@@ -153,7 +153,7 @@ class CrazydealsSection extends StatelessWidget {
                       right: -10,
                       bottom: 0,
                       child: Image.asset(
-                        '', 
+                        'assets/This Produce Delivery Service Wants You to Start Eating the _Ugly_ Vegetables Too 1.png', 
                         height: 160,
                         fit: BoxFit.contain,
                         errorBuilder: (context, error, stackTrace) => Container(

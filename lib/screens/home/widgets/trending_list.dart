@@ -55,8 +55,8 @@ class TrendingList extends StatelessWidget {
                   ],
                 ),
                
-                
-                // Second Column of restaurants - now it will be closer to the first
+                const SizedBox(width: 12),
+                // Second Column of restaurants
                 Column(
                   children: [
                     _buildTrendingItem(
@@ -149,22 +149,30 @@ class TrendingList extends StatelessWidget {
                   location,
                   style: TextStyle(fontSize: 12, color: Colors.grey.shade700),
                 ),
+                // Fixed Row that was overflowing
                 Row(
+                  // Make sure children fit within the available space
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(Icons.star, color: const Color.fromARGB(255, 133, 130, 130), size: 16),
-                    Text(
-                      ' $rating',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
+                    Flexible(
+                      child: Text(
+                        ' $rating',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    const SizedBox(width: 8),
-                    Text(
-                      time,
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey.shade700,
+                    Flexible(
+                      child: Text(
+                        ' $time',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey.shade700,
+                        ),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ],
