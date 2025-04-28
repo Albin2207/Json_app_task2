@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/// Widget displaying a list of nearby stores
+///
+/// Shows a vertical list of store cards with details including
+/// images, ratings, distance, discounts, and available items
 class NearbyStores extends StatelessWidget {
   const NearbyStores({super.key});
 
@@ -8,6 +12,7 @@ class NearbyStores extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        // Header row with "Nearby stores" title and "See all" action
         Padding(
           padding: const EdgeInsets.symmetric(),
           child: Row(
@@ -33,6 +38,7 @@ class NearbyStores extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
+        // Non-scrollable list of nearby stores
         ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
@@ -47,6 +53,7 @@ class NearbyStores extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // Store image
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8),
                         child: Image.asset(
@@ -59,11 +66,15 @@ class NearbyStores extends StatelessWidget {
                                 width: 80,
                                 height: 80,
                                 color: Colors.grey.shade300,
-                                child: const Icon(Icons.image, color: Colors.grey),
+                                child: const Icon(
+                                  Icons.image,
+                                  color: Colors.grey,
+                                ),
                               ),
                         ),
                       ),
                       const SizedBox(width: 16),
+                      // Store details (name, cuisine, location, etc.)
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,6 +104,7 @@ class NearbyStores extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 8),
+                            // "Top Store" badge
                             Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 8,
@@ -113,12 +125,17 @@ class NearbyStores extends StatelessWidget {
                           ],
                         ),
                       ),
+                      // Rating and delivery time column
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Row(
                             children: [
-                              const Icon(Icons.star, color: Colors.amber, size: 16),
+                              const Icon(
+                                Icons.star,
+                                color: Color.fromARGB(255, 76, 74, 74),
+                                size: 16,
+                              ),
                               Text(
                                 ' 4.1',
                                 style: TextStyle(
@@ -142,8 +159,8 @@ class NearbyStores extends StatelessWidget {
                     ],
                   ),
                 ),
-                
-                // Add discount and items available info under each item
+
+                // Discount and items available info under each item
                 Padding(
                   padding: const EdgeInsets.only(left: 96),
                   child: Column(
@@ -151,6 +168,7 @@ class NearbyStores extends StatelessWidget {
                     children: [
                       const Divider(height: 1),
                       const SizedBox(height: 8),
+                      // Discount and available items row
                       Row(
                         children: [
                           Image.asset(
@@ -187,7 +205,7 @@ class NearbyStores extends StatelessWidget {
                     ],
                   ),
                 ),
-                
+
                 // Add a divider after each complete item except the last
                 if (index < 1) const SizedBox(height: 8),
               ],

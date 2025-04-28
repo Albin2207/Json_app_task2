@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/// A button widget for viewing all stores
+///
+/// Creates a centered button that spans about half the screen width with
+/// a green background and rounded corners
 class ViewstoresButton extends StatelessWidget {
   const ViewstoresButton({super.key});
 
@@ -11,7 +15,7 @@ class ViewstoresButton extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {},
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromARGB(255, 41, 181, 45),
+            backgroundColor: const Color(0xFF22C55E),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),

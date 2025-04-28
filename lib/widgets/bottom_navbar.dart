@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class BottomNavbar extends StatelessWidget {
-  const BottomNavbar({super.key});
+  final int currentIndex;
+  final Function(int) onItemTapped;
+  
+  const BottomNavbar({
+    super.key, 
+    required this.currentIndex,
+    required this.onItemTapped,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,29 +29,38 @@ class BottomNavbar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildBottomNavItem(Icons.home, 'Home', true),
-          _buildBottomNavItem(Icons.shopping_cart_outlined, 'Cart', false),
-          _buildBottomNavItem(Icons.shopping_bag_outlined, 'My Order', false),
-          _buildBottomNavItem(Icons.person_outline, 'Profile', false),
+          _buildBottomNavItem(0, 'assets/bottom_navigation/Group (2).png', 'assets/bottom_navigation/Group (2).png', 'Home'),
+          _buildBottomNavItem(1, 'assets/bottom_navigation/Group 196.png', 'assets/bottom_navigation/Group 196.png', 'Cart'),
+          _buildBottomNavItem(2, 'assets/bottom_navigation/Group 197.png', 'assets/bottom_navigation/Group 197.png', 'My Order'),
+          _buildBottomNavItem(3, 'assets/bottom_navigation/Group 201.png', 'assets/bottom_navigation/Group 201.png', 'Profile'),
         ],
       ),
     );
   }
 
-   Widget _buildBottomNavItem(IconData icon, String label, bool isSelected) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon, color: isSelected ? Colors.green : Colors.grey, size: 24),
-        const SizedBox(height: 4),
-        Text(
-          label,
-          style: TextStyle(
-            color: isSelected ? Colors.green : Colors.grey,
-            fontSize: 12,
+  Widget _buildBottomNavItem(int index, String iconPath, String activeIconPath, String label) {
+    final bool isSelected = index == currentIndex;
+    
+    return GestureDetector(
+      onTap: () => onItemTapped(index),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset(
+            isSelected ? activeIconPath : iconPath,
+            width: 24,
+            height: 24,
           ),
-        ),
-      ],
+          const SizedBox(height: 4),
+          Text(
+            label,
+            style: TextStyle(
+              color: isSelected ? Colors.green : Colors.grey,
+              fontSize: 12,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

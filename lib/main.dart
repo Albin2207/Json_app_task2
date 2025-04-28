@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:json_app/provider/notification_provider.dart';
 import 'package:json_app/screens/home/home_screen.dart';
 import 'package:json_app/screens/notification/notification_screen.dart';
+import 'package:json_app/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -33,8 +34,7 @@ class MyApp extends StatelessWidget {
             seedColor: Colors.green,
             primary: Colors.green,
           ),
-          fontFamily:
-              'Poppins', // Make sure to add this font to your pubspec.yaml
+          fontFamily: 'Poppins',
           scaffoldBackgroundColor: Colors.white,
           appBarTheme: const AppBarTheme(
             backgroundColor: Colors.white,
@@ -52,15 +52,20 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        // Define routes
-        initialRoute: '/',
+        // Define routes with splash screen as initial route
+        initialRoute: '/splash',
         routes: {
+          '/splash': (context) => const SplashScreen(),
           '/': (context) => const HomeScreen(),
           '/notifications': (context) => const NotificationScreen(),
         },
         // Alternatively, you can use onGenerateRoute for more dynamic routing
         onGenerateRoute: (settings) {
-          if (settings.name == '/') {
+          if (settings.name == '/splash') {
+            return MaterialPageRoute(
+              builder: (context) => const SplashScreen(),
+            );
+          } else if (settings.name == '/') {
             return MaterialPageRoute(builder: (context) => const HomeScreen());
           } else if (settings.name == '/notifications') {
             return MaterialPageRoute(

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/// Widget showing promotional banners as "Top Picks"
+///
+/// Displays horizontally scrollable promotional banners with images,
+/// text, and call-to-action buttons
 class TopPicksWidget extends StatelessWidget {
   const TopPicksWidget({super.key});
 
@@ -15,7 +19,6 @@ class TopPicksWidget extends StatelessWidget {
               'Top picks for you',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            
           ],
         ),
         const SizedBox(height: 12),
@@ -37,7 +40,8 @@ class TopPicksWidget extends StatelessWidget {
                 // Second promo container
                 _buildPromoContainer(
                   color: const Color.fromARGB(255, 66, 51, 179),
-                  imagePath: 'assets/This Produce Delivery Service Wants You to Start Eating the _Ugly_ Vegetables Too 1.png',
+                  imagePath:
+                      'assets/This Produce Delivery Service Wants You to Start Eating the _Ugly_ Vegetables Too 1.png',
                   buttonColor: Colors.green,
                   titles: ['FRESH', 'VEGETABLES', 'OFFER'],
                 ),
@@ -49,6 +53,13 @@ class TopPicksWidget extends StatelessWidget {
     );
   }
 
+  /// Builds a promotional container with customizable elements
+  ///
+  /// @param color Background color of the container
+  /// @param imagePath Path to the promotional image
+  /// @param buttonColor Color for the call-to-action button
+  /// @param titles List of text lines to display (usually 3 lines)
+  /// @return A promotional container widget
   Widget _buildPromoContainer({
     required Color color,
     required String imagePath,
@@ -69,10 +80,7 @@ class TopPicksWidget extends StatelessWidget {
             top: 0,
             bottom: 0,
             right: 0,
-            child: Image.asset(
-              imagePath,
-              fit: BoxFit.contain,
-            ),
+            child: Image.asset(imagePath, fit: BoxFit.contain),
           ),
           // Text and button
           Positioned(
@@ -81,14 +89,16 @@ class TopPicksWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ...titles.map((title) => Text(
-                      title,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    )),
+                ...titles.map(
+                  (title) => Text(
+                    title,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
                 const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {},
@@ -104,10 +114,7 @@ class TopPicksWidget extends StatelessWidget {
                   ),
                   child: Text(
                     'CHECK NOW',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],

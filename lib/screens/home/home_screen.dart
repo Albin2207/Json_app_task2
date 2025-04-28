@@ -9,8 +9,34 @@ import 'package:json_app/screens/home/widgets/trending_list.dart';
 import 'package:json_app/screens/home/widgets/viewstores_button.dart';
 import 'package:json_app/widgets/bottom_navbar.dart';
 
-class HomeScreen extends StatelessWidget {
+/// Main HomeScreen widget that composes the entire home page of the application
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  // Current index for bottom navigation bar
+  int _currentIndex = 0;
+
+  /// Handles bottom navigation bar item taps
+  ///
+  /// Updates the current index and could handle navigation to other screens
+  /// @param index The index of the tapped navigation item
+  void _onNavItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+
+      // Add navigation logic here if needed
+      // For example, if index is not 0 (Home), you might want to navigate to other screens
+      if (index != 0) {
+        // Navigate to other screens based on index
+        // You could use Navigator to push new routes here
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +74,10 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            BottomNavbar(),
+            BottomNavbar(
+              currentIndex: _currentIndex,
+              onItemTapped: _onNavItemTapped,
+            ),
           ],
         ),
       ),

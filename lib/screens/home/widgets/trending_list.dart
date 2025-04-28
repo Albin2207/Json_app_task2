@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/// Widget that displays a horizontally scrollable list of trending stores or items
+///
+/// Contains a header with title and "See all" action, followed by
+/// horizontally scrollable cards showing trending restaurants/stores
 class TrendingList extends StatelessWidget {
   const TrendingList({super.key});
 
@@ -7,6 +11,7 @@ class TrendingList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        // Header row with "Trending" title and "See all" action
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -14,7 +19,7 @@ class TrendingList extends StatelessWidget {
               'Trending',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-           Padding(
+            Padding(
               padding: const EdgeInsets.only(right: 16.0),
               child: Text(
                 'See all',
@@ -28,6 +33,7 @@ class TrendingList extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 12),
+        // Horizontally scrollable list of trending items
         SizedBox(
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
@@ -40,7 +46,7 @@ class TrendingList extends StatelessWidget {
                     _buildTrendingItem(
                       'Mithas Bhandar',
                       'Sweets, North Indian',
-                      'Home location | 6.4 kms',
+                      '(store location) | 6.4 kms',
                       '4.1  |',
                       '45 mins',
                     ),
@@ -48,29 +54,29 @@ class TrendingList extends StatelessWidget {
                     _buildTrendingItem(
                       'Mithas Bhandar',
                       'Sweets, North Indian',
-                      'Home location | 6.4 kms',
+                      '(store location) | 6.4 kms',
                       '4.1  |',
                       '45 mins',
                     ),
                   ],
                 ),
-               
-                const SizedBox(width: 12),
+
+                const SizedBox(width: 1),
                 // Second Column of restaurants
                 Column(
                   children: [
                     _buildTrendingItem(
                       'Mithas Bhandar',
                       'Sweets, North Indian',
-                      'Home location | 6.4 kms',
+                      '(store location) | 6.4 kms',
                       '4.1  |',
                       '45 mins',
                     ),
                     const SizedBox(height: 16),
                     _buildTrendingItem(
-                     'Mithas Bhandar',
+                      'Mithas Bhandar',
                       'Sweets, North Indian',
-                      'Home location | 6.4 kms',
+                      '(store location) | 6.4 kms',
                       '4.1  |',
                       '45 mins',
                     ),
@@ -92,7 +98,7 @@ class TrendingList extends StatelessWidget {
                       'Green Leaves',
                       'Vegetarian, Healthy',
                       'Park Avenue | 2.9 kms',
-                      '4.6  |', 
+                      '4.6  |',
                       '40 mins',
                     ),
                   ],
@@ -105,6 +111,14 @@ class TrendingList extends StatelessWidget {
     );
   }
 
+  /// Builds a single trending item card
+  ///
+  /// @param name Name of the restaurant or store
+  /// @param cuisine Type of cuisine or category
+  /// @param location Location and distance information
+  /// @param rating Rating of the restaurant (typically displayed with a star)
+  /// @param time Estimated delivery or preparation time
+  /// @return A widget representing a trending item card
   Widget _buildTrendingItem(
     String name,
     String cuisine,
@@ -116,6 +130,7 @@ class TrendingList extends StatelessWidget {
       width: 251,
       child: Row(
         children: [
+          // Restaurant/store image
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: Image.asset(
@@ -133,13 +148,14 @@ class TrendingList extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 12),
+          // Restaurant/store details
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   name,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 Text(
                   cuisine,
@@ -149,17 +165,21 @@ class TrendingList extends StatelessWidget {
                   location,
                   style: TextStyle(fontSize: 12, color: Colors.grey.shade700),
                 ),
-                // Fixed Row that was overflowing
+                // Rating and delivery time row
                 Row(
                   // Make sure children fit within the available space
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(Icons.star, color: const Color.fromARGB(255, 133, 130, 130), size: 16),
+                    Icon(
+                      Icons.star,
+                      color: const Color.fromARGB(255, 133, 130, 130),
+                      size: 16,
+                    ),
                     Flexible(
                       child: Text(
                         ' $rating',
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                         ),
                         overflow: TextOverflow.ellipsis,
@@ -169,7 +189,8 @@ class TrendingList extends StatelessWidget {
                       child: Text(
                         ' $time',
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
                           color: Colors.grey.shade700,
                         ),
                         overflow: TextOverflow.ellipsis,

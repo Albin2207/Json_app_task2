@@ -24,17 +24,23 @@ class HeaderSection extends StatelessWidget {
           // Location row
           Row(
             children: [
-              Icon(
-                Icons.location_on,
+              Image.asset(
+                'assets/header_section/Vector (3).png',
+                width: 28,
+                height: 28,
                 color: const Color.fromARGB(255, 69, 218, 74),
-                size: 28,
               ),
               const SizedBox(width: 4),
               Text(
                 'ABCD, New Delhi',
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
               ),
-              Icon(Icons.keyboard_arrow_down, color: Colors.green, size: 25),
+              Image.asset(
+                'assets/header_section/back button.png',
+                width: 25,
+                height: 25,
+                color: Colors.green,
+              ),
               Spacer(),
             ],
           ),
@@ -57,33 +63,34 @@ class HeaderSection extends StatelessWidget {
                         'Search for products/stores',
                         style: TextStyle(color: Colors.grey, fontSize: 16.5),
                       ),
-                      const SizedBox(width: 6),
-                      Icon(
-                        Icons.search,
+                      const SizedBox(width: 10),
+                      Image.asset(
+                        'assets/header_section/Vector (2).png',
+                        width: 30,
+                        height: 30,
                         color: const Color.fromARGB(255, 77, 228, 82),
-                        size: 30,
                       ),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 10),
               Container(
                 padding: const EdgeInsets.all(4),
                 decoration: BoxDecoration(shape: BoxShape.circle),
                 child: Stack(
                   children: [
-                    IconButton(
-                      icon: Icon(
-                        Icons.notifications_outlined,
-                        size: 28,
-                        color: Colors.orange,
-                      ),
-                      onPressed: () {
+                    InkWell(
+                      onTap: () {
                         Navigator.pushNamed(context, '/notifications');
                       },
+                      child: Image.asset(
+                        'assets/Group 526.png',
+                        width: 28,
+                        height: 28,
+                        color: Colors.orange,
+                      ),
                     ),
-
                     Positioned(
                       right: 0,
                       top: 0,
@@ -110,7 +117,12 @@ class HeaderSection extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 12),
-              Icon(Icons.local_offer_outlined, size: 24, color: Colors.orange),
+              Image.asset(
+                'assets/header_section/Vector (1).png',
+                width: 24,
+                height: 24,
+                color: Colors.orange,
+              ),
             ],
           ),
         ],
